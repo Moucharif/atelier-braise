@@ -312,7 +312,7 @@ export const REVIEWS: Review[] = [
     role: 'Client régulier - Nyékonakpoé',
     rating: 5,
     date: 'Il y a 2 jours',
-    comment: 'Le meilleur capitaine braisé de Lomé ! La cuisson au feu de bois est parfaitement maîtrisée, le poisson est juteux et l\'alloco croustillant. Réservation sur WhatsApp超 pratique.',
+    comment: 'Le meilleur capitaine braisé de Lomé ! La cuisson au feu de bois est parfaitement maîtrisée, le poisson est juteux et l\'alloco croustillant. Réservation sur WhatsApp super pratique.',
     verified: true
   },
   {

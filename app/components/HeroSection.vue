@@ -23,16 +23,16 @@ const quickBenefits = [
         <div class="lg:col-span-7 space-y-6">
           <!-- Main Clear Title (Point démo 1: Compréhension immédiate) -->
           <div class="space-y-3">
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-charcoal-900 dark:text-white font-serif leading-[1.15]">
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-charcoal-900 dark:text-white font-serif leading-[1.2] sm:leading-[1.15]">
               L'Art de la Braise au Feu de Bois & des Saveurs Authentiques à Lomé.
             </h1>
-            <p class="text-base sm:text-lg text-charcoal-600 dark:text-charcoal-300 max-w-2xl leading-relaxed">
+            <p class="text-sm sm:text-base lg:text-lg text-charcoal-600 dark:text-charcoal-300 max-w-2xl leading-relaxed">
               Capitaines et carpes entières braisés à la minute, poulets fermiers marinés aux épices du terroir, accompagnés d'alloco doré et de frites fraîches de patate douce.
             </p>
           </div>
 
           <!-- Reassuring quick features with Font Awesome check -->
-          <div class="grid grid-cols-2 gap-3 pt-1 text-xs sm:text-sm text-charcoal-700 dark:text-charcoal-300">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1 text-xs sm:text-sm text-charcoal-700 dark:text-charcoal-300">
             <div
               v-for="benefit in quickBenefits"
               :key="benefit"
@@ -44,13 +44,13 @@ const quickBenefits = [
           </div>
 
           <!-- Direct Action Buttons (Point démo 2: Bouton WhatsApp direct sans appel) -->
-          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <!-- Primary WhatsApp CTA with Togo Number -->
             <a
               :href="'https://wa.me/' + RESTAURANT_INFO.whatsappNumber.replace(/[^0-9]/g, '') + '?text=' + encodeURIComponent('Bonjour L\'Atelier Braisé Lomé, je souhaite réserver une table ou commander.')"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-base shadow-sm transition-all transform hover:-translate-y-0.5 group"
+              class="inline-flex items-center justify-center gap-2.5 py-3.5 px-5 sm:py-4 sm:px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-sm sm:text-base shadow-sm transition-all transform hover:-translate-y-0.5 group text-center"
             >
               <i class="fa-brands fa-whatsapp text-xl"></i>
               <span>Commander / Réserver sur WhatsApp</span>

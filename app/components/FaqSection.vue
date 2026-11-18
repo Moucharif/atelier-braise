@@ -2,10 +2,20 @@
 import { ref } from 'vue'
 import { RESTAURANT_INFO } from '~/data/restaurant'
 
-const openIndex = ref<number | null>(0)
+// Liste des index des questions ouvertes (première ouverte par défaut)
+const openFaqs = ref<number[]>([0])
 
 const toggleFaq = (index: number) => {
-  openIndex.value = openIndex.value === index ? null : index
+  const pos = openFaqs.value.indexOf(index)
+  if (pos > -1) {
+    openFaqs.value.splice(pos, 1)
+  } else {
+    openFaqs.value.push(index)
+  }
+}
+
+const isFaqOpen = (index: number) => {
+  return openFaqs.value.includes(index)
 }
 
 const faqs = [
@@ -59,38 +69,40 @@ const faqs = [
         <div
           v-for="(faq, index) in faqs"
           :key="index"
-          class="rounded-2xl border border-charcoal-200/80 dark:border-charcoal-800 overflow-hidden bg-[#FAFAF8] dark:bg-charcoal-850 transition-colors"
+          class="rounded-2xl border overflow-hidden transition-all duration-200"
+          :class="isFaqOpen(index)
+            ? 'border-braise-500/40 bg-white dark:bg-charcoal-850 shadow-sm ring-1 ring-braise-500/20'
+            : 'border-charcoal-200/80 dark:border-charcoal-800 bg-[#FAFAF8] dark:bg-charcoal-850/60 hover:border-braise-300'"
         >
           <button
             type="button"
             @click="toggleFaq(index)"
-            class="w-full py-4 px-5 sm:px-6 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-charcoal-900 dark:text-white hover:text-braise-600 dark:hover:text-braise-400 transition-colors"
+            :aria-expanded="isFaqOpen(index)"
+            class="w-full py-4 px-5 sm:px-6 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base cursor-pointer select-none transition-colors"
+            :class="isFaqOpen(index)
+              ? 'text-braise-600 dark:text-braise-400'
+              : 'text-charcoal-900 dark:text-white hover:text-braise-600 dark:hover:text-braise-400'"
           >
             <div class="flex items-center gap-3.5">
-              <i :class="faq.icon" class="text-braise-500 text-sm shrink-0"></i>
-              <span>{{ faq.question }}</span>
+              <i
+                class="text-sm shrink-0 transition-colors"
+                :class="[faq.icon, isFaqOpen(index) ? 'text-braise-500' : 'text-charcoal-400']"
+              ></i>
+              <span class="leading-snug">{{ faq.question }}</span>
             </div>
             <i
-              class="fa-solid text-xs text-charcoal-400 shrink-0 transition-transform duration-200"
-              :class="openIndex === index ? 'fa-chevron-up' : 'fa-chevron-down'"
+              class="fa-solid fa-chevron-down text-xs shrink-0 transition-transform duration-300"
+              :class="isFaqOpen(index) ? 'rotate-180 text-braise-500' : 'text-charcoal-400'"
             ></i>
           </button>
 
-          <transition
-            enter-active-class="transition duration-150 ease-out"
-            enter-from-class="opacity-0 -translate-y-1"
-            enter-to-class="opacity-100 translate-y-0"
-            leave-active-class="transition duration-100 ease-in"
-            leave-from-class="opacity-100 translate-y-0"
-            leave-to-class="opacity-0 -translate-y-1"
+          <!-- Smooth toggle answer with v-show for instant mobile responsiveness -->
+          <div
+            v-show="isFaqOpen(index)"
+            class="px-5 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-charcoal-600 dark:text-charcoal-300 leading-relaxed border-t border-charcoal-100 dark:border-charcoal-800/80 animate-in fade-in duration-200"
           >
-            <div
-              v-if="openIndex === index"
-              class="px-5 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-charcoal-600 dark:text-charcoal-300 leading-relaxed border-t border-charcoal-200/50 dark:border-charcoal-800/60"
-            >
-              {{ faq.answer }}
-            </div>
-          </transition>
+            {{ faq.answer }}
+          </div>
         </div>
       </div>
 

@@ -39,6 +39,28 @@ const closeMobileMenu = () => {
 
 <template>
   <header class="sticky top-0 z-40 w-full bg-white/95 dark:bg-charcoal-900/95 backdrop-blur-md border-b border-charcoal-200/80 dark:border-charcoal-800 transition-colors">
+    <!-- Top Demonstration Notice Banner (Visible on Mobile & Desktop) -->
+    <div class="bg-amber-500/10 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 border-b border-amber-500/20 px-3 py-1.5 text-center text-[11px] sm:text-xs">
+      <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+        <span class="inline-flex items-center gap-1 font-bold text-amber-700 dark:text-amber-300 uppercase tracking-wider text-[10px] px-1.5 py-0.5 rounded-md bg-amber-500/20">
+          <i class="fa-solid fa-flask text-[10px]"></i>
+          Site de démonstration
+        </span>
+        <span class="hidden sm:inline">•</span>
+        <span class="text-charcoal-700 dark:text-charcoal-200">
+          Modèle d'application clé en main pour restaurant & grillades à Lomé.
+        </span>
+        <a
+          :href="'https://wa.me/' + RESTAURANT_INFO.whatsappNumber.replace(/[^0-9]/g, '') + '?text=' + encodeURIComponent('Bonjour, j\'ai vu le site de démonstration L\'Atelier Braisé et je souhaite créer mon propre site de restaurant à Lomé.')"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-bold underline text-braise-700 dark:text-braise-300 hover:text-braise-900 dark:hover:text-white transition-colors"
+        >
+          Créer votre version WhatsApp (+228 70 44 43 06) →
+        </a>
+      </div>
+    </div>
+
     <!-- Top Micro Bar: Status & Direct Contact (Adapts to Light & Dark) -->
     <div class="hidden md:block bg-[#F2F2EE] dark:bg-charcoal-950 text-charcoal-700 dark:text-charcoal-300 text-xs py-2 px-4 border-b border-charcoal-200/80 dark:border-charcoal-800 transition-colors">
       <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -75,7 +97,7 @@ const closeMobileMenu = () => {
     </div>
 
     <!-- Main Navigation Bar -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       <!-- Brand Logo / Name with refined border radius -->
       <a href="#accueil" class="flex items-center gap-3.5 group">
         <div class="w-11 h-11 rounded-2xl bg-braise-500 text-white flex items-center justify-center shadow-md group-hover:bg-braise-600 transition-colors">
