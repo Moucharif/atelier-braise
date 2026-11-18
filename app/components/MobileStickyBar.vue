@@ -6,12 +6,12 @@ const { isCartOpen, totalCount, totalPrice, formatPrice } = useCart()
 </script>
 
 <template>
-  <div class="fixed bottom-0 inset-x-0 z-50 md:hidden flex flex-col">
+  <div v-show="!isCartOpen" class="fixed bottom-0 inset-x-0 z-40 md:hidden flex flex-col transition-all duration-200">
     <!-- Active Cart Mini Banner (Appears if dishes are selected) -->
     <div
       v-if="totalCount > 0"
       @click="isCartOpen = true"
-      class="bg-braise-500 text-white px-4 py-2.5 flex items-center justify-between shadow-lg cursor-pointer"
+      class="bg-braise-500 hover:bg-braise-600 active:bg-braise-700 text-white px-4 py-2.5 flex items-center justify-between shadow-lg cursor-pointer transition-colors"
     >
       <div class="flex items-center gap-2">
         <i class="fa-solid fa-bag-shopping text-sm"></i>

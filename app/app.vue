@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { RESTAURANT_INFO } from '~/data/restaurant'
+import { useCart } from '~/composables/useCart'
+
+const { isCartOpen } = useCart()
 
 // SEO and Meta Tags
 useSeoMeta({
@@ -68,10 +71,11 @@ const scrollToTop = () => {
 
     <!-- Floating Scroll-To-Top Button -->
     <button
+      v-show="!isCartOpen"
       id="back-to-top-btn"
       type="button"
       @click="scrollToTop"
-      class="fixed bottom-20 md:bottom-6 left-4 z-40 w-10 h-10 rounded-2xl bg-white/90 dark:bg-charcoal-800/90 backdrop-blur-md border border-charcoal-200 dark:border-charcoal-700 text-charcoal-700 dark:text-charcoal-200 shadow-lg flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:border-braise-500 hover:text-braise-600 active:scale-95 group"
+      class="fixed bottom-28 md:bottom-6 left-4 z-30 w-10 h-10 rounded-2xl bg-white/90 dark:bg-charcoal-800/90 backdrop-blur-md border border-charcoal-200 dark:border-charcoal-700 text-charcoal-700 dark:text-charcoal-200 shadow-lg flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:border-braise-500 hover:text-braise-600 active:scale-95 group"
       aria-label="Retour en haut de page"
       title="Retour en haut"
     >

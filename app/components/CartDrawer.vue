@@ -62,87 +62,88 @@ watch(isCartOpen, (val) => {
 </script>
 
 <template>
-  <!-- Floating Cart Trigger Button (Visible when cart has items) -->
-  <div
-    v-if="totalCount > 0"
-    class="fixed bottom-20 md:bottom-6 right-4 z-40"
-  >
-    <button
-      type="button"
-      @click="isCartOpen = true"
-      class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-charcoal-900 dark:bg-charcoal-800 text-white shadow-2xl border border-charcoal-700 hover:border-braise-500 transition-all transform hover:scale-105 group"
-    >
-      <div class="relative">
-        <div class="w-10 h-10 rounded-xl bg-braise-500 flex items-center justify-center text-white">
-          <i class="fa-solid fa-bag-shopping text-base"></i>
-        </div>
-        <span class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-emerald-500 text-[11px] font-bold text-white flex items-center justify-center border-2 border-charcoal-900">
-          {{ totalCount }}
-        </span>
-      </div>
-
-      <div class="text-left pr-2">
-        <span class="text-[11px] text-charcoal-400 block font-semibold uppercase tracking-wider">
-          Votre Commande
-        </span>
-        <span class="text-sm font-extrabold text-amber-300">
-          {{ formatPrice(totalPrice) }}
-        </span>
-      </div>
-
-      <div class="w-8 h-8 rounded-xl bg-charcoal-800 group-hover:bg-braise-500 flex items-center justify-center text-charcoal-300 group-hover:text-white transition-colors">
-        <i class="fa-solid fa-arrow-right text-xs"></i>
-      </div>
-    </button>
-  </div>
-
-  <!-- Slide-over Backdrop & Drawer -->
-  <div v-if="isCartOpen" class="fixed inset-0 z-50 overflow-hidden">
-    <!-- Backdrop -->
+  <Teleport to="body">
+    <!-- Floating Cart Trigger Button (Visible only on desktop/tablet, MobileStickyBar handles mobile) -->
     <div
-      @click="isCartOpen = false"
-      class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
-    ></div>
-
-    <!-- Drawer Panel -->
-    <div class="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
-      <div class="w-screen max-w-md bg-white dark:bg-charcoal-900 border-l border-charcoal-200 dark:border-charcoal-800 shadow-2xl flex flex-col justify-between">
-        
-        <!-- Header -->
-        <div class="p-5 sm:p-6 border-b border-charcoal-200 dark:border-charcoal-800 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-2xl bg-braise-500/10 text-braise-600 dark:text-braise-400 flex items-center justify-center">
-              <i class="fa-solid fa-bag-shopping text-base"></i>
-            </div>
-            <div>
-              <h3 class="text-base font-bold text-charcoal-900 dark:text-white font-serif">
-                Votre Commande
-              </h3>
-              <span class="text-xs text-charcoal-500 dark:text-charcoal-400">
-                {{ totalCount }} plat(s) sélectionné(s)
-              </span>
-            </div>
+      v-if="totalCount > 0 && !isCartOpen"
+      class="hidden md:block fixed bottom-6 right-6 z-40"
+    >
+      <button
+        type="button"
+        @click="isCartOpen = true"
+        class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-charcoal-900 dark:bg-charcoal-800 text-white shadow-2xl border border-charcoal-700 hover:border-braise-500 transition-all transform hover:scale-105 group"
+      >
+        <div class="relative">
+          <div class="w-10 h-10 rounded-xl bg-braise-500 flex items-center justify-center text-white">
+            <i class="fa-solid fa-bag-shopping text-base"></i>
           </div>
-
-          <div class="flex items-center gap-1">
-            <button
-              v-if="cart.length > 0"
-              type="button"
-              @click="clearCart"
-              class="p-2 text-charcoal-400 hover:text-rose-600 transition-colors"
-              title="Vider la commande"
-            >
-              <i class="fa-solid fa-trash-can text-sm"></i>
-            </button>
-            <button
-              type="button"
-              @click="isCartOpen = false"
-              class="p-2 text-charcoal-400 hover:text-charcoal-900 dark:hover:text-white transition-colors"
-            >
-              <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-          </div>
+          <span class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-emerald-500 text-[11px] font-bold text-white flex items-center justify-center border-2 border-charcoal-900">
+            {{ totalCount }}
+          </span>
         </div>
+
+        <div class="text-left pr-2">
+          <span class="text-[11px] text-charcoal-400 block font-semibold uppercase tracking-wider">
+            Votre Commande
+          </span>
+          <span class="text-sm font-extrabold text-amber-300">
+            {{ formatPrice(totalPrice) }}
+          </span>
+        </div>
+
+        <div class="w-8 h-8 rounded-xl bg-charcoal-800 group-hover:bg-braise-500 flex items-center justify-center text-charcoal-300 group-hover:text-white transition-colors">
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </div>
+      </button>
+    </div>
+
+    <!-- Slide-over Backdrop & Drawer (Full width on mobile, sleek drawer on desktop) -->
+    <div v-if="isCartOpen" class="fixed inset-0 z-[9990] overflow-hidden">
+      <!-- Backdrop -->
+      <div
+        @click="isCartOpen = false"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+      ></div>
+
+      <!-- Drawer Panel -->
+      <div class="fixed inset-y-0 right-0 max-w-full flex w-full sm:w-auto">
+        <div class="w-full sm:w-[440px] max-w-full h-full bg-white dark:bg-charcoal-900 sm:border-l border-charcoal-200 dark:border-charcoal-800 shadow-2xl flex flex-col justify-between relative">
+          
+          <!-- Header -->
+          <div class="p-4 sm:p-5 border-b border-charcoal-200 dark:border-charcoal-800 flex items-center justify-between shrink-0 bg-white dark:bg-charcoal-900">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-braise-500/10 text-braise-600 dark:text-braise-400 flex items-center justify-center">
+                <i class="fa-solid fa-bag-shopping text-base"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-charcoal-900 dark:text-white font-serif">
+                  Votre Commande
+                </h3>
+                <span class="text-xs text-charcoal-500 dark:text-charcoal-400">
+                  {{ totalCount }} plat(s) sélectionné(s)
+                </span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-1">
+              <button
+                v-if="cart.length > 0"
+                type="button"
+                @click="clearCart"
+                class="p-2 text-charcoal-400 hover:text-rose-600 transition-colors"
+                title="Vider la commande"
+              >
+                <i class="fa-solid fa-trash-can text-sm"></i>
+              </button>
+              <button
+                type="button"
+                @click="isCartOpen = false"
+                class="p-2 text-charcoal-400 hover:text-charcoal-900 dark:hover:text-white transition-colors"
+              >
+                <i class="fa-solid fa-xmark text-lg"></i>
+              </button>
+            </div>
+          </div>
 
         <!-- Body: Cart Items & Form -->
         <div class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-5">
@@ -398,7 +399,7 @@ watch(isCartOpen, (val) => {
         </div>
 
         <!-- Footer: Price Breakdown & Final WhatsApp Action -->
-        <div v-if="cart.length > 0" class="p-5 sm:p-6 border-t border-charcoal-200 dark:border-charcoal-800 bg-[#FAFAF8] dark:bg-charcoal-850 space-y-3">
+        <div v-if="cart.length > 0" class="p-4 sm:p-6 border-t border-charcoal-200 dark:border-charcoal-800 bg-[#FAFAF8] dark:bg-charcoal-850 space-y-3 shrink-0 cart-safe-pb">
           
           <!-- Detailed breakdown when delivery -->
           <div v-if="orderType === 'livraison'" class="space-y-1.5 text-xs text-charcoal-600 dark:text-charcoal-300 pb-2 border-b border-charcoal-200/60 dark:border-charcoal-700/60">
@@ -442,4 +443,11 @@ watch(isCartOpen, (val) => {
       </div>
     </div>
   </div>
+  </Teleport>
 </template>
+
+<style scoped>
+.cart-safe-pb {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+</style>
