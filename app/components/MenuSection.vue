@@ -170,7 +170,7 @@ const getWhatsAppOrderUrl = (item: MenuItem) => {
                 : 'bg-braise-50 hover:bg-braise-100 dark:bg-braise-950/40 dark:hover:bg-braise-950/70 border border-braise-200 dark:border-braise-800/80 text-braise-700 dark:text-braise-300'"
             >
               <i :class="addedDishId === item.id ? 'fa-solid fa-check text-xs' : 'fa-solid fa-plus text-xs'"></i>
-              <span>{{ addedDishId === item.id ? 'Ajouté !' : '+ Ajouter' }}</span>
+              <span>{{ addedDishId === item.id ? 'Ajouté !' : 'Ajouter' }}</span>
             </button>
 
             <!-- Direct WhatsApp single-dish order -->
