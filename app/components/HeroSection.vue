@@ -85,10 +85,11 @@ const quickBenefits = [
             <!-- Main Photo Container -->
             <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] sm:aspect-[5/4] border border-charcoal-200/80 dark:border-charcoal-800 bg-charcoal-100 dark:bg-charcoal-900">
               <img
-                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80"
+                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=720&q=75"
                 alt="Grillades au feu de bois - L'Atelier Braisé Lomé Togo"
                 class="w-full h-full object-cover"
                 loading="eager"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 

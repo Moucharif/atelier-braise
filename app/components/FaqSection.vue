@@ -48,7 +48,7 @@ const faqs = [
 </script>
 
 <template>
-  <section id="faq" class="py-16 bg-white dark:bg-charcoal-900 border-t border-charcoal-200/80 dark:border-charcoal-800 transition-colors reveal-on-scroll">
+  <section id="faq" class="py-16 bg-white dark:bg-charcoal-900 border-t border-charcoal-200/80 dark:border-charcoal-800 transition-colors">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
       <div class="text-center mb-10 space-y-3">

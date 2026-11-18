@@ -39,53 +39,22 @@
   box-shadow: 0 1px 8px rgba(234, 88, 12, 0.4);
 }
 
-/* SCROLL REVEAL ANIMATIONS */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-on-scroll.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.96);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-scale.is-revealed {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-26px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-left.is-revealed {
-  opacity: 1;
-  transform: translateX(0);
-}
-
+/* SCROLL REVEAL ANIMATIONS (Toujours 100% visible par défaut pour garantir l'affichage sur mobile) */
+.reveal-on-scroll,
+.reveal-scale,
+.reveal-left,
 .reveal-right {
-  opacity: 0;
-  transform: translateX(26px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
+.reveal-on-scroll.is-revealed,
+.reveal-scale.is-revealed,
+.reveal-left.is-revealed,
 .reveal-right.is-revealed {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
 }
 
 /* Stagger delay classes for dish cards & highlights */

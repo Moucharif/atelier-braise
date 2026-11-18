@@ -150,7 +150,7 @@ export const MENU_ITEMS: MenuItem[] = [
     isChefSpecial: true,
     isPopular: true,
     prepTime: '25-30 min',
-    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'poulet-bicyclette',
@@ -160,7 +160,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 8000,
     isPopular: true,
     prepTime: '20-25 min',
-    image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'brochettes-suya',
@@ -171,7 +171,7 @@ export const MENU_ITEMS: MenuItem[] = [
     isChefSpecial: false,
     isPopular: true,
     prepTime: '15 min',
-    image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'carpe-rouge-braisee',
@@ -181,7 +181,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 7500,
     isPopular: false,
     prepTime: '20 min',
-    image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'travers-porc-braise',
@@ -192,7 +192,7 @@ export const MENU_ITEMS: MenuItem[] = [
     isChefSpecial: true,
     isPopular: false,
     prepTime: '20 min',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=480&q=70'
   },
 
   // 2. Spécialités & Plats
@@ -204,7 +204,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 8500,
     isChefSpecial: true,
     prepTime: '30 min',
-    image: 'https://images.unsplash.com/photo-1547496502-affa22d38842?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1547496502-affa22d38842?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'soupe-pecheur',
@@ -214,7 +214,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 9000,
     isPopular: true,
     prepTime: '20 min',
-    image: 'https://images.unsplash.com/photo-1548943487-a2e4e43b4853?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1548943487-a2e4e43b4853?auto=format&fit=crop&w=480&q=70'
   },
 
   // 3. Accompagnements
@@ -226,7 +226,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 1500,
     isPopular: true,
     prepTime: '10 min',
-    image: 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'frites-patate-douce',
@@ -236,7 +236,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 1500,
     isPopular: true,
     prepTime: '10 min',
-    image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'riz-parfume-legumes',
@@ -246,7 +246,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 1500,
     isPopular: false,
     prepTime: '5 min',
-    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=480&q=70'
   },
 
   // 4. Desserts
@@ -259,7 +259,7 @@ export const MENU_ITEMS: MenuItem[] = [
     isChefSpecial: true,
     isPopular: true,
     prepTime: '5 min',
-    image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'ananas-roti',
@@ -269,7 +269,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 3000,
     isPopular: false,
     prepTime: '10 min',
-    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=480&q=70'
   },
 
   // 5. Boissons & Cocktails
@@ -281,7 +281,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 1500,
     isPopular: true,
     prepTime: 'Immédiat',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'gnamankoudji-gingembre',
@@ -291,7 +291,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 1500,
     isPopular: true,
     prepTime: 'Immédiat',
-    image: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=480&q=70'
   },
   {
     id: 'cocktail-braise',
@@ -301,7 +301,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 4500,
     isChefSpecial: true,
     prepTime: '5 min',
-    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80'
+    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=480&q=70'
   }
 ]
 
@@ -358,7 +358,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   // 1. Poissons & Grillades
   {
     id: 'g-1',
-    url: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=750&q=75',
     title: 'Capitaine Braisé Royal de la Côte',
     desc: 'Pêche fraîche du jour grillée entière sur braises incandescentes avec piment vert et oignons.',
     category: 'grillades',
@@ -368,7 +368,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-2',
-    url: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=750&q=75',
     title: 'Trio de Brochettes & Grillades Fumées',
     desc: 'Filet de bœuf assaisonné au tchitchinga traditionnel et doré à la minute.',
     category: 'grillades',
@@ -378,7 +378,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-3',
-    url: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=750&q=75',
     title: 'Poulet Bicyclette Fermier Crapaudine',
     desc: 'Poulet local mariné aux épices du terroir togolais avec sa peau croustillante.',
     category: 'grillades',
@@ -388,7 +388,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-4',
-    url: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=750&q=75',
     title: 'Travers de Porc Braisés Miel & Épices',
     desc: 'Côtes caramélisées lentement au feu de bois pour une texture fondante.',
     category: 'grillades',
@@ -398,7 +398,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-5',
-    url: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=750&q=75',
     title: 'Carpe Rouge Braisée & Alloco Maison',
     desc: 'Chair fine et fondante sublimée par nos rondelles de plantain doré.',
     category: 'grillades',
@@ -410,7 +410,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   // 2. Terrasse & Ambiance
   {
     id: 'g-6',
-    url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=750&q=75',
     title: 'Notre Terrasse Végétalisée à Nyékonakpoé',
     desc: 'Un espace aéré et ventilé, parfait pour vos déjeuners et dîners conviviaux à Lomé.',
     category: 'ambiance',
@@ -420,7 +420,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-7',
-    url: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=750&q=75',
     title: 'Ambiance Soirée Lumineuse & Chaleureuse',
     desc: 'Lumières douces, musique d\'ambiance et service attentionné dès la tombée de la nuit.',
     category: 'ambiance',
@@ -430,7 +430,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-8',
-    url: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=750&q=75',
     title: 'Tables pour Groupes & Familles',
     desc: 'Espaces modulables pour vos repas de groupe, anniversaires et retrouvailles.',
     category: 'ambiance',
@@ -440,7 +440,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-9',
-    url: 'https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?auto=format&fit=crop&w=750&q=75',
     title: 'Le Cadre Reposant en Plein Cœur de Lomé',
     desc: 'À 200m du carrefour Nyékonakpoé, un havre de paix loin du tumulte urbain.',
     category: 'ambiance',
@@ -452,7 +452,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   // 3. Cuisine & Feu de Bois
   {
     id: 'g-10',
-    url: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=750&q=75',
     title: 'Le Chef Grillardin en Action',
     desc: 'Maîtrise du feu et précision de cuisson pour chaque poisson et pièce de viande.',
     category: 'cuisine',
@@ -462,7 +462,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-11',
-    url: 'https://images.unsplash.com/photo-1509315811345-672d83ef2fbc?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1509315811345-672d83ef2fbc?auto=format&fit=crop&w=750&q=75',
     title: 'Braises Incandescentes au Bois Naturel',
     desc: 'Le secret de notre saveur fumée : aucun gaz, uniquement des essences de bois dur.',
     category: 'cuisine',
@@ -472,7 +472,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-12',
-    url: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=750&q=75',
     title: 'Marinades Artisanales & Épices Locales',
     desc: 'Piments sélectionnés, gingembre frais, ail et herbes fraîches pilés chaque matin.',
     category: 'cuisine',
@@ -484,7 +484,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   // 4. Cocktails & Boissons
   {
     id: 'g-13',
-    url: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=750&q=75',
     title: 'Cocktail Frais aux Fruits Tropicaux',
     desc: 'Ananas doux de Tsévié, menthe fraîche et agrumes pressés à la commande.',
     category: 'boissons',
@@ -494,7 +494,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'g-14',
-    url: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=750&q=75',
     title: 'Jus de Bissap Maison Glacé & Infusion Menthe',
     desc: 'Recette rafraîchissante préparée selon la pure tradition de Lomé.',
     category: 'boissons',

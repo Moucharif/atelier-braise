@@ -3,7 +3,7 @@ import { RESTAURANT_INFO } from '~/data/restaurant'
 </script>
 
 <template>
-  <section id="localisation" class="py-16 bg-[#FAFAF8] dark:bg-charcoal-950 transition-colors reveal-on-scroll">
+  <section id="localisation" class="py-16 bg-[#FAFAF8] dark:bg-charcoal-950 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-10 space-y-3">
         <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-braise-500/10 text-braise-700 dark:text-braise-300 border border-braise-500/20">

@@ -114,7 +114,7 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
 </script>
 
 <template>
-  <section id="reservation" class="py-16 lg:py-24 bg-white dark:bg-charcoal-900 border-t border-charcoal-200/80 dark:border-charcoal-800 transition-colors reveal-on-scroll">
+  <section id="reservation" class="py-16 lg:py-24 bg-white dark:bg-charcoal-900 border-t border-charcoal-200/80 dark:border-charcoal-800 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
       <div class="max-w-2xl mx-auto text-center mb-12 space-y-3">

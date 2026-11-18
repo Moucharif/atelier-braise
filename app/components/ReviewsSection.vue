@@ -3,7 +3,7 @@ import { REVIEWS, RESTAURANT_INFO } from '~/data/restaurant'
 </script>
 
 <template>
-  <section id="avis" class="py-16 bg-[#FAFAF8] dark:bg-charcoal-950 transition-colors reveal-on-scroll">
+  <section id="avis" class="py-16 bg-[#FAFAF8] dark:bg-charcoal-950 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header with Aggregate Rating -->
       <div class="max-w-2xl mx-auto text-center mb-12 space-y-3">

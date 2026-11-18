@@ -111,18 +111,23 @@ atelier-braise/
 │   │   ├── ReviewsSection.vue          # Avis clients vérifiés (note 4.9/5)
 │   │   ├── TheFooter.vue               # Liens rapides, mentions et toggle thème
 │   │   └── TheHeader.vue               # Navigation desktop/mobile, statut live
+│   ├── stores/                         # Gestion d'état globale Pinia
+│   │   ├── cart.ts                     # Store panier, pré-commandes & livraison Lomé
+│   │   ├── theme.ts                    # Store thème clair/sombre persistant
+│   │   ├── menu.ts                     # Store filtres carte, recherche & modal
+│   │   └── reservation.ts              # Store réservations & pré-sélection
 │   ├── composables/
-│   │   ├── useCart.ts                  # Gestion réactive du panier et livraison Lomé
+│   │   ├── useCart.ts                  # Pont composable vers le store Pinia panier
 │   │   ├── useRestaurantStatus.ts      # Calcul d'ouverture selon l'heure locale
-│   │   └── useTheme.ts                 # Gestion du mode clair / sombre (localStorage)
+│   │   └── useTheme.ts                 # Pont composable vers le store Pinia thème
 │   ├── data/
 │   │   └── restaurant.ts               # Source de vérité (infos, menu, avis, photos)
 │   └── plugins/
-│       └── scroll-reveal.client.ts     # Détection de défilement (IntersectionObserver)
+│       └── scroll-reveal.client.ts     # Détection de défilement sécurisée mobile
 ├── public/
 │   ├── favicon.ico
 │   └── robots.txt
-├── nuxt.config.ts                      # Configuration Nuxt, Tailwind & Head SEO
+├── nuxt.config.ts                      # Configuration Nuxt, Tailwind, Pinia & Head SEO
 ├── package.json
 ├── tailwind.config.ts                  # Couleurs braise/charcoal & polices
 └── tsconfig.json
@@ -132,11 +137,12 @@ atelier-braise/
 
 ## Stack Technique
 
-- **Framework :** [Nuxt 3](https://nuxt.com/) (Vue 3, Vite, Nitro Server)
+- **Framework :** [Nuxt 3 / 4](https://nuxt.com/) (Vue 3, Vite, Nitro Server)
+- **Gestion d'état :** [Pinia](https://pinia.vuejs.org/) (`@pinia/nuxt`)
 - **Styling :** [Tailwind CSS](https://tailwindcss.com/)
 - **Typographie :**
-  - Titres : *Playfair Display* (Google Fonts)
-  - Textes : *Plus Jakarta Sans* (Google Fonts)
+  - Titres : *Playfair Display* (Google Fonts avec `display=swap`)
+  - Textes : *Plus Jakarta Sans* (Google Fonts avec `display=swap`)
 - **Icônes :** Font Awesome 6 Free (`@fortawesome/fontawesome-free`)
 - **Langage :** TypeScript strict
 

@@ -1,43 +1,26 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import {
-  MENU_CATEGORIES,
-  MENU_ITEMS,
   RESTAURANT_INFO,
   type MenuItem
 } from '~/data/restaurant'
-import { useCart } from '~/composables/useCart'
+import { useMenuStore } from '~/stores/menu'
+import { useCartStore } from '~/stores/cart'
 
-const { addItem, formatPrice } = useCart()
+const menuStore = useMenuStore()
+const cartStore = useCartStore()
 
-const activeCategory = ref('all')
-const searchQuery = ref('')
-const selectedDishForModal = ref<MenuItem | null>(null)
-const isModalOpen = ref(false)
+const {
+  activeCategory,
+  searchQuery,
+  selectedDishForModal,
+  isModalOpen,
+  categories,
+  filteredAndSortedItems
+} = storeToRefs(menuStore)
 
-// Tri strict : TOUS les plats avec images sont disposés en premier (Consigne 3)
-const filteredAndSortedItems = computed(() => {
-  const filtered = MENU_ITEMS.filter(item => {
-    const matchesCategory = activeCategory.value === 'all' || item.category === activeCategory.value
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-                          item.description.toLowerCase().includes(searchQuery.value.toLowerCase())
-    return matchesCategory && matchesSearch
-  })
-
-  // Priorité absolue aux plats possédant une image
-  return filtered.sort((a, b) => {
-    const aHasImg = Boolean(a.image)
-    const bHasImg = Boolean(b.image)
-    if (aHasImg && !bHasImg) return -1
-    if (!aHasImg && bHasImg) return 1
-    return 0
-  })
-})
-
-const openDishModal = (item: MenuItem) => {
-  selectedDishForModal.value = item
-  isModalOpen.value = true
-}
+const { openDishModal, closeDishModal } = menuStore
+const { addItem, formatPrice } = cartStore
 
 const getWhatsAppOrderUrl = (item: MenuItem) => {
   const text = `Bonjour L'Atelier Braisé Lomé, je souhaite commander : 1x ${item.name} (${formatPrice(item.price)}).`
@@ -46,7 +29,7 @@ const getWhatsAppOrderUrl = (item: MenuItem) => {
 </script>
 
 <template>
-  <section id="menu" class="py-16 lg:py-24 reveal-on-scroll">
+  <section id="menu" class="py-16 lg:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
       <div class="max-w-2xl mx-auto text-center mb-10 space-y-3">
@@ -67,7 +50,7 @@ const getWhatsAppOrderUrl = (item: MenuItem) => {
         <!-- Category Filters -->
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 w-full md:w-auto">
           <button
-            v-for="cat in MENU_CATEGORIES"
+            v-for="cat in categories"
             :key="cat.id"
             type="button"
             @click="activeCategory = cat.id"
@@ -111,6 +94,7 @@ const getWhatsAppOrderUrl = (item: MenuItem) => {
                 :alt="item.name"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
@@ -197,7 +181,7 @@ const getWhatsAppOrderUrl = (item: MenuItem) => {
         </p>
         <button
           type="button"
-          @click="searchQuery = ''; activeCategory = 'all'"
+          @click="menuStore.resetFilters()"
           class="mt-3 text-xs font-semibold text-braise-600 dark:text-braise-400 hover:underline"
         >
           Réinitialiser la recherche
@@ -224,7 +208,7 @@ const getWhatsAppOrderUrl = (item: MenuItem) => {
     <DishDetailModal
       :dish="selectedDishForModal"
       :is-open="isModalOpen"
-      @close="isModalOpen = false"
+      @close="closeDishModal"
     />
   </section>
 </template>

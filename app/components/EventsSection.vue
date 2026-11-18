@@ -10,7 +10,7 @@ const eventBenefits = [
 </script>
 
 <template>
-  <section id="evenements" class="py-16 bg-[#FAFAF8] dark:bg-charcoal-950 border-t border-charcoal-200/80 dark:border-charcoal-800 transition-colors reveal-on-scroll">
+  <section id="evenements" class="py-16 bg-[#FAFAF8] dark:bg-charcoal-950 border-t border-charcoal-200/80 dark:border-charcoal-800 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="bg-gradient-to-br from-charcoal-900 to-charcoal-950 text-white rounded-3xl p-8 sm:p-12 border border-charcoal-800 relative overflow-hidden shadow-xl">
         <!-- Warm ambient accent glow -->

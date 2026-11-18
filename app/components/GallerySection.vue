@@ -113,7 +113,7 @@ const handleActionRedirect = (href?: string) => {
 </script>
 
 <template>
-  <section id="galerie" class="py-16 lg:py-24 bg-white dark:bg-charcoal-900 border-t border-charcoal-200/80 dark:border-charcoal-800 transition-colors reveal-on-scroll">
+  <section id="galerie" class="py-16 lg:py-24 bg-white dark:bg-charcoal-900 border-t border-charcoal-200/80 dark:border-charcoal-800 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->

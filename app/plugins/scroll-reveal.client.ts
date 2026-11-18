@@ -1,25 +1,11 @@
 export default defineNuxtPlugin(() => {
   if (typeof window === 'undefined') return
 
-  const setupScrollReveal = () => {
-    const observerOptions: IntersectionObserverInit = {
-      root: null,
-      rootMargin: '0px 0px -60px 0px',
-      threshold: 0.1
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed')
-        }
-      })
-    }, observerOptions)
-
+  const markAllRevealed = () => {
     const elementsToReveal = document.querySelectorAll(
       '.reveal-on-scroll, .reveal-scale, .reveal-left, .reveal-right'
     )
-    elementsToReveal.forEach((el) => observer.observe(el))
+    elementsToReveal.forEach((el) => el.classList.add('is-revealed'))
   }
 
   // Reading progress indicator & Header scroll listener
@@ -45,21 +31,17 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  // Initialize after DOM is ready
-  window.addEventListener('DOMContentLoaded', () => {
-    setupScrollReveal()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-  })
+  // Execute immediately to never block mobile render
+  if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', markAllRevealed, { once: true })
+  } else {
+    markAllRevealed()
+  }
 
-  // Nuxt page hook to re-observe if DOM updates
+  window.addEventListener('scroll', handleScroll, { passive: true })
+
   const nuxtApp = useNuxtApp()
   nuxtApp.hook('page:finish', () => {
-    setTimeout(setupScrollReveal, 100)
+    markAllRevealed()
   })
-
-  // Initial trigger
-  setTimeout(() => {
-    setupScrollReveal()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-  }, 150)
 })
