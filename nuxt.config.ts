@@ -5,6 +5,13 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss'
   ],
+  postcss: {
+    plugins: {
+      'tailwindcss/nesting': false,
+      tailwindcss: {},
+      autoprefixer: {}
+    }
+  },
   css: [
     '@fortawesome/fontawesome-free/css/all.min.css',
     '~/assets/css/main.css'

@@ -28,6 +28,9 @@ const openLightbox = (photo: GalleryPhoto) => {
 const closeLightbox = () => {
   isLightboxOpen.value = false
   selectedPhotoIndex.value = null
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = ''
+  }
 }
 
 watch(isLightboxOpen, (val) => {
@@ -87,6 +90,7 @@ onMounted(() => {
 onUnmounted(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('keydown', handleKeydown)
+    document.body.style.overflow = ''
   }
 })
 
@@ -227,87 +231,112 @@ const handleActionRedirect = (href?: string) => {
     </div>
 
     <!-- INTERACTIVE LIGHTBOX MODAL WITH FULLSCREEN NAVIGATION & REDIRECTION -->
-    <div
-      v-if="isLightboxOpen && currentPhoto"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md transition-opacity"
-      @click.self="closeLightbox"
-    >
-      <!-- Close Button -->
-      <button
-        type="button"
-        @click="closeLightbox"
-        class="absolute top-4 right-4 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center backdrop-blur-md transition-colors"
-        aria-label="Fermer la vue photo"
+    <Teleport to="body">
+      <div
+        v-if="isLightboxOpen && currentPhoto"
+        class="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto transition-opacity"
+        @click.self="closeLightbox"
       >
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
+        <!-- Floating Close Button (Top-Right of Viewport) -->
+        <button
+          type="button"
+          @click="closeLightbox"
+          class="fixed top-4 right-4 z-50 w-11 h-11 rounded-full bg-black/70 hover:bg-black text-white border border-white/20 flex items-center justify-center backdrop-blur-md shadow-xl transition-all transform hover:scale-105"
+          aria-label="Fermer la vue photo"
+          title="Fermer (Échap)"
+        >
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
 
-      <!-- Previous Arrow Button -->
-      <button
-        type="button"
-        @click="prevPhoto"
-        class="absolute left-3 sm:left-6 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center backdrop-blur-md transition-all transform hover:scale-110"
-        aria-label="Photo précédente"
-      >
-        <i class="fa-solid fa-chevron-left text-base"></i>
-      </button>
+        <!-- Previous Arrow Button -->
+        <button
+          type="button"
+          @click.stop="prevPhoto"
+          class="fixed left-3 sm:left-6 z-50 w-12 h-12 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 flex items-center justify-center backdrop-blur-md shadow-xl transition-all transform hover:scale-110 active:scale-95"
+          aria-label="Photo précédente"
+          title="Précédent (Flèche gauche)"
+        >
+          <i class="fa-solid fa-chevron-left text-base"></i>
+        </button>
 
-      <!-- Next Arrow Button -->
-      <button
-        type="button"
-        @click="nextPhoto"
-        class="absolute right-3 sm:right-6 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center backdrop-blur-md transition-all transform hover:scale-110"
-        aria-label="Photo suivante"
-      >
-        <i class="fa-solid fa-chevron-right text-base"></i>
-      </button>
+        <!-- Next Arrow Button -->
+        <button
+          type="button"
+          @click.stop="nextPhoto"
+          class="fixed right-3 sm:right-6 z-50 w-12 h-12 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 flex items-center justify-center backdrop-blur-md shadow-xl transition-all transform hover:scale-110 active:scale-95"
+          aria-label="Photo suivante"
+          title="Suivant (Flèche droite)"
+        >
+          <i class="fa-solid fa-chevron-right text-base"></i>
+        </button>
 
-      <!-- Lightbox Main Card -->
-      <div class="relative max-w-4xl w-full bg-charcoal-900 rounded-3xl border border-charcoal-700/80 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-        
-        <!-- Large Image -->
-        <div class="relative bg-black flex items-center justify-center overflow-hidden max-h-[62vh]">
-          <img
-            :src="currentPhoto.url"
-            :alt="currentPhoto.title"
-            class="w-full h-full max-h-[62vh] object-contain"
-          />
-        </div>
+        <!-- Lightbox Main Card (Theme-adaptive for Light & Dark modes) -->
+        <div class="relative max-w-5xl w-full bg-white dark:bg-charcoal-900 rounded-3xl border border-charcoal-200 dark:border-charcoal-700 shadow-2xl overflow-hidden flex flex-col my-auto max-h-[92vh]">
+          
+          <!-- Image Stage: Centered, never distorted, full HD display -->
+          <div class="relative bg-charcoal-950 flex items-center justify-center overflow-hidden min-h-[280px] max-h-[64vh] p-2">
+            <img
+              :src="currentPhoto.url"
+              :alt="currentPhoto.title"
+              class="max-h-[62vh] max-w-full w-auto h-auto object-contain mx-auto select-none rounded-xl shadow-md transition-all duration-300"
+            />
 
-        <!-- Lightbox Caption & Redirection CTA -->
-        <div class="p-5 sm:p-6 bg-charcoal-900 border-t border-charcoal-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div class="space-y-1.5 min-w-0 flex-1">
-            <div class="flex items-center gap-2.5">
-              <span class="px-2.5 py-0.5 rounded-md bg-braise-500/20 text-braise-400 border border-braise-500/30 text-[11px] font-bold">
+            <!-- In-card category badge on top-left of image -->
+            <div class="absolute top-4 left-4 flex items-center gap-2">
+              <span class="px-3 py-1 rounded-xl bg-black/60 backdrop-blur-md text-white text-xs font-semibold border border-white/20 shadow-sm">
                 {{ currentPhoto.categoryLabel }}
               </span>
-              <span class="text-xs text-charcoal-400">
-                Photo {{ (selectedPhotoIndex || 0) + 1 }} sur {{ filteredPhotos.length }}
+              <span class="px-2.5 py-1 rounded-xl bg-black/60 backdrop-blur-md text-charcoal-200 text-xs font-medium border border-white/10">
+                {{ (selectedPhotoIndex || 0) + 1 }} / {{ filteredPhotos.length }}
               </span>
             </div>
 
-            <h3 class="text-base sm:text-lg font-bold text-white font-serif">
-              {{ currentPhoto.title }}
-            </h3>
-
-            <p class="text-xs sm:text-sm text-charcoal-300 leading-relaxed">
-              {{ currentPhoto.desc }}
-            </p>
-          </div>
-
-          <!-- Direct Redirection Button -->
-          <div v-if="currentPhoto.actionHref" class="shrink-0 w-full sm:w-auto">
+            <!-- In-card close button top-right -->
             <button
               type="button"
-              @click="handleActionRedirect(currentPhoto.actionHref)"
-              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-braise-500 hover:bg-braise-600 text-white font-semibold text-xs sm:text-sm transition-colors shadow-md"
+              @click="closeLightbox"
+              class="sm:hidden absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center border border-white/20"
+              aria-label="Fermer"
             >
-              <span>{{ currentPhoto.actionLabel || 'En savoir plus' }}</span>
-              <i class="fa-solid fa-arrow-right text-xs"></i>
+              <i class="fa-solid fa-xmark text-sm"></i>
             </button>
+          </div>
+
+          <!-- Lightbox Caption & Redirection CTA (Light mode & Dark mode clean layout) -->
+          <div class="p-5 sm:p-6 bg-white dark:bg-charcoal-900 border-t border-charcoal-200/80 dark:border-charcoal-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="space-y-1.5 min-w-0 flex-1">
+              <div class="flex items-center gap-2.5">
+                <span class="px-2.5 py-0.5 rounded-md bg-braise-500/10 text-braise-700 dark:text-braise-300 border border-braise-500/20 text-[11px] font-bold">
+                  {{ currentPhoto.categoryLabel }}
+                </span>
+                <span class="text-xs text-charcoal-500 dark:text-charcoal-400">
+                  Photo {{ (selectedPhotoIndex || 0) + 1 }} sur {{ filteredPhotos.length }}
+                </span>
+              </div>
+
+              <h3 class="text-base sm:text-xl font-bold text-charcoal-900 dark:text-white font-serif">
+                {{ currentPhoto.title }}
+              </h3>
+
+              <p class="text-xs sm:text-sm text-charcoal-600 dark:text-charcoal-300 leading-relaxed max-w-2xl">
+                {{ currentPhoto.desc }}
+              </p>
+            </div>
+
+            <!-- Direct Redirection Button -->
+            <div v-if="currentPhoto.actionHref" class="shrink-0 w-full sm:w-auto">
+              <button
+                type="button"
+                @click="handleActionRedirect(currentPhoto.actionHref)"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-braise-500 hover:bg-braise-600 active:bg-braise-700 text-white font-bold text-xs sm:text-sm transition-all shadow-md transform hover:-translate-y-0.5"
+              >
+                <span>{{ currentPhoto.actionLabel || 'En savoir plus' }}</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Teleport>
   </section>
 </template>
