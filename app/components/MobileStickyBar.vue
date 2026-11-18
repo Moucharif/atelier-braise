@@ -3,10 +3,11 @@ import { RESTAURANT_INFO } from '~/data/restaurant'
 import { useCart } from '~/composables/useCart'
 
 const { isCartOpen, totalCount, totalPrice, formatPrice } = useCart()
+const isMobileMenuOpen = useState('isMobileMenuOpen', () => false)
 </script>
 
 <template>
-  <div v-show="!isCartOpen" class="fixed bottom-0 inset-x-0 z-40 md:hidden flex flex-col transition-all duration-200">
+  <div v-show="!isCartOpen && !isMobileMenuOpen" class="fixed bottom-0 inset-x-0 z-40 md:hidden flex flex-col transition-all duration-200">
     <!-- Active Cart Mini Banner (Appears if dishes are selected) -->
     <div
       v-if="totalCount > 0"
@@ -16,7 +17,7 @@ const { isCartOpen, totalCount, totalPrice, formatPrice } = useCart()
       <div class="flex items-center gap-2">
         <i class="fa-solid fa-bag-shopping text-sm"></i>
         <span class="text-xs font-semibold">
-          {{ totalCount }} plat(s) • {{ formatPrice(totalPrice) }}
+          {{ totalCount }} {{ totalCount > 1 ? 'plats' : 'plat' }} • {{ formatPrice(totalPrice) }}
         </span>
       </div>
       <span class="text-xs font-bold underline flex items-center gap-1.5">

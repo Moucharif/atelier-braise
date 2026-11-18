@@ -98,21 +98,21 @@ export const useCartStore = defineStore('cart', () => {
     const isTakeout = orderType.value === 'emporter'
 
     let typeLabel = 'Dégustation sur place à Nyékonakpoé'
-    if (isDelivery) typeLabel = '🛵 Livraison à domicile / bureau (Lomé)'
-    if (isTakeout) typeLabel = '🥡 À emporter (Passage au restaurant)'
+    if (isDelivery) typeLabel = '🛵 Livraison à domicile / bureau Lomé'
+    if (isTakeout) typeLabel = '🥡 À emporter - Passage au restaurant'
 
     const paymentLabel = paymentMethod.value === 'tmoney'
-      ? 'T-Money (+228 70 44 43 06)'
+      ? 'T-Money'
       : paymentMethod.value === 'flooz'
-        ? 'Moov Money (Flooz)'
-        : 'Espèces (FCFA)'
+        ? 'Moov Flooz'
+        : 'Espèces FCFA'
 
     const lines: string[] = [
-      `*Commande - ${RESTAURANT_INFO.name} (Lomé)* 🍽️`,
+      `*Commande - ${RESTAURANT_INFO.name} Lomé* 🍽️`,
       `• Formule : ${typeLabel}`,
       customerName.value ? `• Nom du client : ${customerName.value}` : '• Client : Non précisé',
       customerPhone.value ? `• Téléphone : ${customerPhone.value}` : '',
-      isDelivery ? `• Quartier / Zone Lomé : ${currentZone.value.name} (+${formatPrice(currentZone.value.fee)})` : '',
+      isDelivery ? `• Quartier / Zone Lomé : ${currentZone.value.name} + ${formatPrice(currentZone.value.fee)}` : '',
       isDelivery && deliveryAddress.value ? `• Adresse précise : ${deliveryAddress.value}` : '',
       `• Mode de règlement : ${paymentLabel}`,
       '',
@@ -120,7 +120,7 @@ export const useCartStore = defineStore('cart', () => {
     ].filter(Boolean)
 
     cart.value.forEach(item => {
-      lines.push(`- ${item.quantity}x ${item.dish.name} (${formatPrice(item.dish.price * item.quantity)})`)
+      lines.push(`- ${item.quantity}x ${item.dish.name} : ${formatPrice(item.dish.price * item.quantity)}`)
       if (item.notes) {
         lines.push(`  ↳ Note : ${item.notes}`)
       }

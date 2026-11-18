@@ -149,7 +149,7 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
                 class="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-semibold text-sm shadow-sm transition-all transform hover:-translate-y-0.5 group"
               >
                 <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>WhatsApp (+228 70 44 43 06)</span>
+                <span>WhatsApp</span>
               </a>
 
               <a
@@ -195,7 +195,7 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
               <!-- Phone -->
               <div>
                 <label class="block text-xs font-semibold text-charcoal-700 dark:text-charcoal-300 mb-1.5">
-                  Numéro de téléphone (Togo) *
+                  Numéro de téléphone Togo *
                 </label>
                 <input
                   v-model="form.phone"
@@ -221,7 +221,7 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
                   <option value="2 personnes">2 personnes</option>
                   <option value="3-4 personnes">3 à 4 personnes</option>
                   <option value="5-6 personnes">5 à 6 personnes</option>
-                  <option value="Groupe (8+ personnes)">Groupe (8+ personnes)</option>
+                  <option value="Groupe 8 personnes et plus">Groupe 8 personnes et plus</option>
                 </select>
               </div>
 
@@ -254,7 +254,7 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
             <div class="space-y-2 pt-1">
               <div class="flex items-center justify-between">
                 <label class="block text-xs font-semibold text-charcoal-700 dark:text-charcoal-300">
-                  Plat(s) souhaité(s) à l'avance <span class="font-normal text-charcoal-400">(Facultatif)</span>
+                  Plats souhaités à l'avance <span class="font-normal text-charcoal-400">• Optionnel</span>
                 </label>
                 <span v-if="form.selectedDishes.length > 0" class="text-xs font-bold text-braise-600 dark:text-braise-400">
                   {{ form.selectedDishes.length }} sélectionné{{ form.selectedDishes.length > 1 ? 's' : '' }}
@@ -390,7 +390,7 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
             </button>
 
             <p class="text-[11px] text-center text-charcoal-500 dark:text-charcoal-400 pt-1">
-              Votre message sera envoyé avec la liste complète des plats sélectionnés directement sur le WhatsApp du restaurant (+228 70 44 43 06).
+              Votre message sera envoyé avec la liste complète des plats sélectionnés directement sur le WhatsApp du restaurant.
             </p>
           </form>
         </div>
@@ -451,13 +451,18 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
                 :key="cat.id"
                 type="button"
                 @click="modalCategory = cat.id"
-                class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
+                class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all inline-flex items-center"
                 :class="modalCategory === cat.id
                   ? 'bg-braise-500 text-white shadow-xs'
                   : 'bg-white dark:bg-charcoal-800 text-charcoal-600 dark:text-charcoal-300 border border-charcoal-200 dark:border-charcoal-700 hover:border-braise-300'"
               >
-                {{ cat.label }}
-                <span class="text-[10px] opacity-80">({{ getCategoryCount(cat.id) }})</span>
+                <span>{{ cat.label }}</span>
+                <span
+                  class="text-[10px] ml-1.5 px-1.5 py-0.5 rounded-md font-bold"
+                  :class="modalCategory === cat.id ? 'bg-white/20 text-white' : 'bg-charcoal-200/60 dark:bg-charcoal-700 text-charcoal-600 dark:text-charcoal-400'"
+                >
+                  {{ getCategoryCount(cat.id) }}
+                </span>
               </button>
             </div>
           </div>
@@ -491,11 +496,11 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
                   loading="lazy"
                 />
 
-                <div class="min-w-0">
-                  <h4 class="text-xs sm:text-sm font-bold text-charcoal-900 dark:text-white truncate">
+                <div class="min-w-0 flex-1">
+                  <h4 class="text-xs sm:text-sm font-bold text-charcoal-900 dark:text-white line-clamp-2 leading-snug">
                     {{ dish.name }}
                   </h4>
-                  <span class="text-[11px] text-charcoal-500 dark:text-charcoal-400 block truncate">
+                  <span class="text-[11px] text-charcoal-500 dark:text-charcoal-400 block line-clamp-1 mt-0.5">
                     {{ dish.description }}
                   </span>
                 </div>
@@ -529,7 +534,7 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
             <div class="text-xs">
               <span class="text-charcoal-500 dark:text-charcoal-400 block">Sélectionnés :</span>
               <span class="font-extrabold text-charcoal-900 dark:text-white text-sm">
-                {{ form.selectedDishes.length }} plat(s) • {{ formatPrice(selectedDishesTotal) }}
+                {{ form.selectedDishes.length }} {{ form.selectedDishes.length > 1 ? 'plats' : 'plat' }} • {{ formatPrice(selectedDishesTotal) }}
               </span>
             </div>
 
@@ -548,7 +553,7 @@ Merci de me confirmer la réservation et la disponibilité de la table.`
                 @click="closeModal"
                 class="px-5 py-2.5 rounded-xl bg-braise-500 hover:bg-braise-600 text-white text-xs sm:text-sm font-bold shadow-md transition-all"
               >
-                Valider mon choix ({{ form.selectedDishes.length }})
+                Valider mon choix
               </button>
             </div>
           </div>

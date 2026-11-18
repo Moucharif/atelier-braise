@@ -8,7 +8,7 @@ import { useCart } from '~/composables/useCart'
 const { isDark, toggleTheme } = useTheme()
 const { status } = useRestaurantStatus()
 const { isCartOpen, totalCount } = useCart()
-const isMobileMenuOpen = ref(false)
+const isMobileMenuOpen = useState('isMobileMenuOpen', () => false)
 
 const desktopNavLinks = [
   { href: '#accueil', label: 'Accueil' },
@@ -29,7 +29,7 @@ const allNavLinks = [
   { href: '#avis', label: 'Avis Clients Vérifiés', icon: 'fa-solid fa-star' },
   { href: '#galerie', label: 'Galerie & Ambiance', icon: 'fa-solid fa-camera' },
   { href: '#evenements', label: 'Service Traiteur & Fêtes', icon: 'fa-solid fa-champagne-glasses' },
-  { href: '#faq', label: 'Foire Aux Questions (FAQ)', icon: 'fa-solid fa-circle-question' }
+  { href: '#faq', label: 'Foire Aux Questions', icon: 'fa-solid fa-circle-question' }
 ]
 
 const closeMobileMenu = () => {
@@ -56,7 +56,7 @@ const closeMobileMenu = () => {
           rel="noopener noreferrer"
           class="font-bold underline text-braise-700 dark:text-braise-300 hover:text-braise-900 dark:hover:text-white transition-colors"
         >
-          Créer votre version WhatsApp (+228 70 44 43 06) →
+          Créer votre site WhatsApp →
         </a>
       </div>
     </div>
@@ -90,7 +90,7 @@ const closeMobileMenu = () => {
             class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold transition-colors"
           >
             <i class="fa-brands fa-whatsapp text-sm"></i>
-            <span>WhatsApp (+228 70 44 43 06)</span>
+            <span>WhatsApp</span>
           </a>
         </div>
       </div>
@@ -237,7 +237,7 @@ const closeMobileMenu = () => {
             class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 text-white font-semibold text-sm shadow-sm"
           >
             <i class="fa-brands fa-whatsapp text-lg"></i>
-            <span>WhatsApp (+228 70 44 43 06)</span>
+            <span>WhatsApp</span>
           </a>
 
           <a

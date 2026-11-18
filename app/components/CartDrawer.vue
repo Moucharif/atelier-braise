@@ -120,7 +120,7 @@ watch(isCartOpen, (val) => {
                   Votre Commande
                 </h3>
                 <span class="text-xs text-charcoal-500 dark:text-charcoal-400">
-                  {{ totalCount }} plat(s) sélectionné(s)
+                  {{ totalCount }} {{ totalCount > 1 ? 'plats sélectionnés' : 'plat sélectionné' }}
                 </span>
               </div>
             </div>
@@ -185,13 +185,13 @@ watch(isCartOpen, (val) => {
                 />
 
                 <div class="min-w-0 flex-1">
-                  <h5 class="text-xs sm:text-sm font-bold text-charcoal-900 dark:text-white truncate">
+                  <h5 class="text-xs sm:text-sm font-bold text-charcoal-900 dark:text-white line-clamp-2 leading-snug">
                     {{ item.dish.name }}
                   </h5>
                   <span class="text-xs font-semibold text-braise-600 dark:text-braise-400 block mt-0.5">
                     {{ formatPrice(item.dish.price * item.quantity) }}
                     <span v-if="item.quantity > 1" class="text-[10px] text-charcoal-400 font-normal">
-                      ({{ formatPrice(item.dish.price) }} / u)
+                      • {{ formatPrice(item.dish.price) }} / unité
                     </span>
                   </span>
                 </div>
@@ -282,7 +282,7 @@ watch(isCartOpen, (val) => {
                     :key="zone.id"
                     :value="zone.id"
                   >
-                    {{ zone.name }} (+{{ formatPrice(zone.fee) }})
+                    {{ zone.name }} +{{ formatPrice(zone.fee) }}
                   </option>
                 </select>
 
@@ -332,7 +332,7 @@ watch(isCartOpen, (val) => {
 
                 <div>
                   <label class="block text-xs font-semibold text-charcoal-700 dark:text-charcoal-300 mb-1">
-                    Téléphone (Togo)
+                    Téléphone Togo
                   </label>
                   <input
                     v-model="customerPhone"
@@ -385,7 +385,7 @@ watch(isCartOpen, (val) => {
               <!-- Notes / Special request -->
               <div>
                 <label class="block text-xs font-semibold text-charcoal-700 dark:text-charcoal-300 mb-1">
-                  Précisions / Piment (optionnel)
+                  Précisions ou piment
                 </label>
                 <input
                   v-model="customerNotes"
@@ -410,7 +410,7 @@ watch(isCartOpen, (val) => {
             <div class="flex items-center justify-between text-braise-600 dark:text-braise-400">
               <span class="flex items-center gap-1">
                 <i class="fa-solid fa-motorcycle text-[10px]"></i>
-                Frais de livraison ({{ currentZone.shortLabel }}) :
+                Frais de livraison - {{ currentZone.shortLabel }} :
               </span>
               <span class="font-bold">+{{ formatPrice(deliveryFee) }}</span>
             </div>
@@ -433,7 +433,7 @@ watch(isCartOpen, (val) => {
             class="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-sm shadow-md transition-all transform hover:-translate-y-0.5"
           >
             <i class="fa-brands fa-whatsapp text-lg"></i>
-            <span>Commander sur WhatsApp ({{ RESTAURANT_INFO.phoneDisplay }})</span>
+            <span>Commander sur WhatsApp</span>
           </button>
 
           <p class="text-[11px] text-center text-charcoal-500 dark:text-charcoal-400">

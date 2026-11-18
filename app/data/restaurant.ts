@@ -79,7 +79,7 @@ export const RESTAURANT_INFO = {
   googleMapsUrl: "https://maps.google.com/?q=Nyekonakpoe+Lome+Togo",
   googleMapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15867.70119293427!2d1.205934!3d6.136829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023e1c0d45362ff%3A0x6b77242a1ecf1766!2sNy%C3%A9konakpo%C3%A9%2C%20Lom%C3%A9%2C%20Togo!5e0!3m2!1sfr!2stg!4v1710000000000!5m2!1sfr!2stg",
   hours: [
-    { day: "Lundi", hours: "Fermé (Repos de l'équipe)", isOpen: false },
+    { day: "Lundi", hours: "Fermé - Repos de l'équipe", isOpen: false },
     { day: "Mardi", hours: "12:00 - 15:00 & 18:30 - 23:30", isOpen: true },
     { day: "Mercredi", hours: "12:00 - 15:00 & 18:30 - 23:30", isOpen: true },
     { day: "Jeudi", hours: "12:00 - 15:00 & 18:30 - 23:30", isOpen: true },
@@ -88,9 +88,9 @@ export const RESTAURANT_INFO = {
     { day: "Dimanche", hours: "12:00 - 16:30 & 18:30 - 23:00", isOpen: true }
   ],
   payments: [
-    { name: "T-Money (Togocom)", icon: "fa-solid fa-mobile-screen-button" },
-    { name: "Moov Money (Flooz)", icon: "fa-solid fa-money-bill-transfer" },
-    { name: "Espèces (FCFA)", icon: "fa-solid fa-coins" }
+    { name: "T-Money", icon: "fa-solid fa-mobile-screen-button" },
+    { name: "Moov Flooz", icon: "fa-solid fa-money-bill-transfer" },
+    { name: "Espèces FCFA", icon: "fa-solid fa-coins" }
   ],
   socials: {
     facebook: "https://facebook.com",
@@ -105,7 +105,7 @@ export const RESTAURANT_INFO = {
         desc: "Le client comprend instantanément le type de cuisine et le positionnement du restaurant à Lomé."
       },
       {
-        title: "Bouton WhatsApp direct (+228 70 44 43 06)",
+        title: "Bouton WhatsApp direct",
         desc: "Réservation et commande en 1 clic sans faire sonner le téléphone en cuisine."
       },
       {
@@ -113,7 +113,7 @@ export const RESTAURANT_INFO = {
         desc: "Tous les plats ont une photo soignée et leurs prix réels sont immédiatement visibles."
       },
       {
-        title: "Horaires & adresse à Lomé (Togo)",
+        title: "Horaires & adresse à Lomé",
         desc: "Repères précis à Nyékonakpoé et gestion des paiements T-Money et Flooz."
       },
       {
@@ -143,7 +143,7 @@ export const MENU_ITEMS: MenuItem[] = [
   // 1. Grillades Signature
   {
     id: 'capitaine-braise',
-    name: 'Capitaine Braisé Royal (Portion Entière)',
+    name: 'Capitaine Braisé Royal - Portion Entière',
     category: 'grillades',
     description: 'Pêche fraîche du jour, marinade secrète aux épices sauvages, cuit lentement à la braise. Servi avec oignons et piment doux.',
     price: 9500,
@@ -164,7 +164,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'brochettes-suya',
-    name: 'Trio de Brochettes Filet de Bœuf (Tchitchinga / Suya)',
+    name: 'Trio de Brochettes Filet de Bœuf Tchitchinga',
     category: 'grillades',
     description: 'Brochettes généreuses de cœur de filet de bœuf, enrobées d\'épices tchitchinga douces, grillées à la flamme.',
     price: 5500,
@@ -275,7 +275,7 @@ export const MENU_ITEMS: MenuItem[] = [
   // 5. Boissons & Cocktails
   {
     id: 'bissap-menthe',
-    name: 'Bissap Frais Menthe & Hibiscus (50cl)',
+    name: 'Bissap Frais Menthe & Hibiscus 50cl',
     category: 'boissons',
     description: 'Infusion maison de calices d\'hibiscus pourpre, menthe fraîchement cueillie, légèrement sucré au miel.',
     price: 1500,
@@ -285,7 +285,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'gnamankoudji-gingembre',
-    name: 'Pur Jus de Gingembre Frais & Citron Vert (50cl)',
+    name: 'Pur Jus de Gingembre Frais & Citron Vert 50cl',
     category: 'boissons',
     description: 'Pur jus de gingembre frais extrait à froid, ananas et zeste de citron vert pressé.',
     price: 1500,

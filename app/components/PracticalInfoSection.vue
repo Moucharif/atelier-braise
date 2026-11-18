@@ -188,15 +188,15 @@ const currentDayName = () => {
             <div class="flex items-center gap-2 font-semibold text-charcoal-700 dark:text-charcoal-300">
               <span class="px-2.5 py-1 rounded-lg bg-charcoal-100 dark:bg-charcoal-800 flex items-center gap-1.5">
                 <i class="fa-solid fa-mobile-screen-button text-emerald-500 text-xs"></i>
-                T-Money (Togocom)
+                T-Money
               </span>
               <span class="px-2.5 py-1 rounded-lg bg-charcoal-100 dark:bg-charcoal-800 flex items-center gap-1.5">
                 <i class="fa-solid fa-money-bill-transfer text-blue-500 text-xs"></i>
-                Moov Money (Flooz)
+                Moov Flooz
               </span>
               <span class="px-2.5 py-1 rounded-lg bg-charcoal-100 dark:bg-charcoal-800 flex items-center gap-1.5">
                 <i class="fa-solid fa-coins text-amber-500 text-xs"></i>
-                Espèces (FCFA)
+                Espèces FCFA
               </span>
             </div>
           </div>

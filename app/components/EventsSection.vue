@@ -4,7 +4,7 @@ import { RESTAURANT_INFO } from '~/data/restaurant'
 const eventBenefits = [
   'Privatisation totale ou partielle de notre terrasse à Lomé',
   'Service traiteur braise mobile à domicile ou en entreprise',
-  'Formules sur-mesure (cocktails, buffets de poissons & viandes)',
+  'Formules sur-mesure : cocktails, buffets de poissons & viandes',
   'Maîtrise complète de la braise par nos chefs grillardins'
 ]
 </script>

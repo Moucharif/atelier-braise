@@ -292,16 +292,6 @@ const handleActionRedirect = (href?: string) => {
                 {{ (selectedPhotoIndex || 0) + 1 }} / {{ filteredPhotos.length }}
               </span>
             </div>
-
-            <!-- In-card close button top-right -->
-            <button
-              type="button"
-              @click="closeLightbox"
-              class="sm:hidden absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center border border-white/20"
-              aria-label="Fermer"
-            >
-              <i class="fa-solid fa-xmark text-sm"></i>
-            </button>
           </div>
 
           <!-- Lightbox Caption & Redirection CTA (Light mode & Dark mode clean layout) -->

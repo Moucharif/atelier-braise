@@ -8,7 +8,8 @@ export const useThemeStore = defineStore('theme', () => {
   const applyTheme = () => {
     if (typeof window !== 'undefined') {
       const storedTheme = localStorage.getItem('theme')
-      if (storedTheme === 'dark') {
+      const hasDarkClass = document.documentElement.classList.contains('dark')
+      if (storedTheme === 'dark' || (!storedTheme && hasDarkClass)) {
         isDark.value = true
         document.documentElement.classList.add('dark')
       } else {

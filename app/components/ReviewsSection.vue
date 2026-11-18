@@ -15,14 +15,16 @@ import { REVIEWS, RESTAURANT_INFO } from '~/data/restaurant'
           Ce que disent nos habitués
         </h2>
         
-        <!-- Google rating badge -->
-        <div class="pt-1 flex items-center justify-center gap-2 text-xs sm:text-sm text-charcoal-600 dark:text-charcoal-300">
-          <div class="flex items-center text-amber-400 gap-0.5">
-            <i v-for="i in 5" :key="i" class="fa-solid fa-star text-sm"></i>
+        <!-- Google rating badge (Responsive and never breaking on mobile) -->
+        <div class="pt-1 flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 text-xs sm:text-sm text-charcoal-600 dark:text-charcoal-300">
+          <div class="flex items-center gap-2">
+            <div class="flex items-center text-amber-400 gap-0.5">
+              <i v-for="i in 5" :key="i" class="fa-solid fa-star text-sm"></i>
+            </div>
+            <span class="font-bold text-charcoal-900 dark:text-white whitespace-nowrap">4.9 / 5</span>
           </div>
-          <span class="font-bold text-charcoal-900 dark:text-white">4.9 / 5</span>
-          <span class="text-charcoal-400">•</span>
-          <span>Basé sur plus de 160 avis clients à Lomé</span>
+          <span class="hidden sm:inline text-charcoal-400">•</span>
+          <span class="text-[11px] sm:text-xs text-charcoal-500 dark:text-charcoal-400 whitespace-nowrap">Basé sur plus de 160 avis clients à Lomé</span>
         </div>
       </div>
 

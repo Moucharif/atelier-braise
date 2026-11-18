@@ -14,7 +14,7 @@ const footerNavLinks = [
   { href: '#avis', label: 'Avis Clients Vérifiés' },
   { href: '#galerie', label: 'Galerie Photos & Ambiance' },
   { href: '#evenements', label: 'Service Traiteur & Fêtes' },
-  { href: '#faq', label: 'Foire Aux Questions (FAQ)' }
+  { href: '#faq', label: 'Foire Aux Questions' }
 ]
 </script>
 

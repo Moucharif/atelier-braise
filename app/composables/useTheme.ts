@@ -1,4 +1,4 @@
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useThemeStore } from '~/stores/theme'
 
 export function useTheme() {
@@ -9,7 +9,7 @@ export function useTheme() {
   })
 
   return {
-    isDark: store.isDark,
+    isDark: computed(() => store.isDark),
     toggleTheme: store.toggleTheme,
     applyTheme: store.applyTheme,
     setTheme: store.setTheme

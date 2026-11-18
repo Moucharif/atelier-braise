@@ -8,8 +8,8 @@ const { isCartOpen } = useCart()
 useSeoMeta({
   title: `${RESTAURANT_INFO.name} | ${RESTAURANT_INFO.tagline}`,
   ogTitle: `${RESTAURANT_INFO.name} | ${RESTAURANT_INFO.tagline}`,
-  description: `${RESTAURANT_INFO.shortDescription} Consultez notre carte avec les prix en FCFA et réservez directement sans attente sur WhatsApp (+228 70 44 43 06).`,
-  ogDescription: `${RESTAURANT_INFO.shortDescription} Réservation directe en ligne et sur WhatsApp (+228 70 44 43 06).`,
+  description: `${RESTAURANT_INFO.shortDescription} Consultez notre carte avec les prix en FCFA et réservez directement sans attente sur WhatsApp.`,
+  ogDescription: `${RESTAURANT_INFO.shortDescription} Réservation directe en ligne et sur WhatsApp.`,
   ogImage: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80',
   twitterCard: 'summary_large_image',
   robots: 'index, follow'
@@ -69,13 +69,12 @@ const scrollToTop = () => {
     <!-- Panier de Commande Multi-Plats WhatsApp (Slide-over avec calcul des frais de livraison Lomé) -->
     <CartDrawer />
 
-    <!-- Floating Scroll-To-Top Button -->
+    <!-- Floating Scroll-To-Top Button (Desktop only: avoids covering content and form controls on mobile) -->
     <button
-      v-show="!isCartOpen"
       id="back-to-top-btn"
       type="button"
       @click="scrollToTop"
-      class="fixed bottom-28 md:bottom-6 left-4 z-30 w-10 h-10 rounded-2xl bg-white/90 dark:bg-charcoal-800/90 backdrop-blur-md border border-charcoal-200 dark:border-charcoal-700 text-charcoal-700 dark:text-charcoal-200 shadow-lg flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:border-braise-500 hover:text-braise-600 active:scale-95 group"
+      class="hidden md:flex fixed bottom-6 left-6 z-30 w-11 h-11 rounded-2xl bg-white/90 dark:bg-charcoal-800/90 backdrop-blur-md border border-charcoal-200 dark:border-charcoal-700 text-charcoal-700 dark:text-charcoal-200 shadow-lg items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:border-braise-500 hover:text-braise-600 active:scale-95 group"
       aria-label="Retour en haut de page"
       title="Retour en haut"
     >

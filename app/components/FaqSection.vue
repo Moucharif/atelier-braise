@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     question: "Quels moyens de paiement acceptez-vous au Togo ?",
-    answer: "Nous acceptons les règlements par T-Money (Togocom), Moov Money (Flooz) ainsi que les règlements en espèces (FCFA). Les réceptions mobiles sont instantanées à table.",
+    answer: "Nous acceptons les règlements par T-Money, Moov Flooz ainsi que les règlements en espèces FCFA. Les réceptions mobiles sont instantanées à table.",
     icon: "fa-solid fa-mobile-screen-button"
   },
   {
