@@ -130,14 +130,14 @@ const handleActionRedirect = (href?: string) => {
         </p>
       </div>
 
-      <!-- Category Filter Tabs with Count & Font Awesome Icons -->
-      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-10">
+      <!-- Category Filter Tabs with Count & Font Awesome Icons (Défilement horizontal fluide sur mobile, centré sur desktop) -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center mb-8 sm:mb-10">
         <button
           v-for="cat in GALLERY_CATEGORIES"
           :key="cat.id"
           type="button"
           @click="activeCategory = cat.id"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200"
+          class="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap shrink-0 transition-all duration-200"
           :class="activeCategory === cat.id
             ? 'bg-braise-500 text-white shadow-md transform scale-105'
             : 'bg-[#FAFAF8] dark:bg-charcoal-850 text-charcoal-700 dark:text-charcoal-300 border border-charcoal-200/80 dark:border-charcoal-800 hover:border-braise-400 hover:text-braise-600'"

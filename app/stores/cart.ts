@@ -53,6 +53,8 @@ export const useCartStore = defineStore('cart', () => {
     } else {
       cart.value.push({ dish, quantity: 1 })
     }
+    // Ouvre automatiquement le tiroir de commande pour confirmation visuelle immédiate
+    isCartOpen.value = true
   }
 
   const removeItem = (dishId: string) => {
