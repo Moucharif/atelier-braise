@@ -59,19 +59,21 @@ const getWhatsAppOrderUrl = (item: MenuItem) => {
       <!-- Categories & Search Bar with Soft Rounded Radius -->
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
         <!-- Category Filters (Défilement horizontal fluide sur mobile) -->
-        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 w-full md:w-auto -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-start">
-          <button
-            v-for="cat in categories"
-            :key="cat.id"
-            type="button"
-            @click="activeCategory = cat.id"
-            class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap shrink-0 transition-all duration-200"
-            :class="activeCategory === cat.id
-              ? 'bg-braise-500 text-white shadow-sm transform scale-105'
-              : 'bg-white dark:bg-charcoal-850 text-charcoal-700 dark:text-charcoal-300 border border-charcoal-200 dark:border-charcoal-800 hover:border-braise-400'"
-          >
-            {{ cat.label }}
-          </button>
+        <div class="w-full md:w-auto max-w-full overflow-hidden">
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 px-1 sm:px-0 sm:flex-wrap sm:justify-start w-full">
+            <button
+              v-for="cat in categories"
+              :key="cat.id"
+              type="button"
+              @click="activeCategory = cat.id"
+              class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap shrink-0 transition-all duration-200"
+              :class="activeCategory === cat.id
+                ? 'bg-braise-500 text-white shadow-sm transform scale-105'
+                : 'bg-white dark:bg-charcoal-850 text-charcoal-700 dark:text-charcoal-300 border border-charcoal-200 dark:border-charcoal-800 hover:border-braise-400'"
+            >
+              {{ cat.label }}
+            </button>
+          </div>
         </div>
 
         <!-- Search Input with Font Awesome Search Icon -->

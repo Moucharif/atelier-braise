@@ -20,7 +20,7 @@ const scrollToTop = () => {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-[#FAFAF8] dark:bg-charcoal-950 text-charcoal-800 dark:text-charcoal-100 transition-colors duration-200">
+  <div class="min-h-screen flex flex-col bg-[#FAFAF8] dark:bg-charcoal-950 text-charcoal-800 dark:text-charcoal-100 transition-colors duration-200 overflow-x-hidden max-w-full w-full relative">
     <!-- Top Reading / Scroll Progress Bar -->
     <div id="scroll-progress" aria-hidden="true"></div>
 
@@ -28,7 +28,7 @@ const scrollToTop = () => {
     <TheHeader />
 
     <!-- Main Content Area -->
-    <main class="flex-grow">
+    <main class="flex-grow overflow-x-hidden max-w-full w-full relative">
       <!-- 1. Hero Section: Nom, phrase d'accroche, photo principale, bouton WhatsApp -->
       <HeroSection />
 

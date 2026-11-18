@@ -40,8 +40,8 @@ const closeMobileMenu = () => {
 <template>
   <header class="sticky top-0 z-40 w-full bg-white/95 dark:bg-charcoal-900/95 backdrop-blur-md border-b border-charcoal-200/80 dark:border-charcoal-800 transition-colors">
     <!-- Top Demonstration Notice Banner (Visible on Mobile & Desktop) -->
-    <div class="bg-amber-500/10 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 border-b border-amber-500/20 px-3 py-1.5 text-center text-[11px] sm:text-xs">
-      <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+    <div class="bg-amber-500/10 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 border-b border-amber-500/20 px-3 py-1.5 text-center text-[11px] sm:text-xs overflow-hidden break-words">
+      <div class="max-w-7xl mx-auto flex items-center justify-center gap-x-2 gap-y-1 flex-wrap">
         <span class="inline-flex items-center gap-1 font-bold text-amber-700 dark:text-amber-300 uppercase tracking-wider text-[10px] px-1.5 py-0.5 rounded-md bg-amber-500/20">
           <i class="fa-solid fa-flask text-[10px]"></i>
           Site de démonstration

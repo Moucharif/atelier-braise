@@ -25,7 +25,7 @@ export default defineNuxtConfig({
       title: "L'Atelier Braisé | Grillades au Feu de Bois & Saveurs du Terroir - Lomé, Togo",
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover' },
         {
           name: 'description',
           content: "Restaurant de grillades au feu de bois à Lomé, Togo. Poissons braisés frais, poulets fermiers marinés et accompagnements locaux. Réservez sur WhatsApp (+228 70 44 43 06)."

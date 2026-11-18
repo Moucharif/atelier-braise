@@ -12,9 +12,9 @@ const eventBenefits = [
 <template>
   <section id="evenements" class="py-16 bg-[#FAFAF8] dark:bg-charcoal-950 border-t border-charcoal-200/80 dark:border-charcoal-800 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gradient-to-br from-charcoal-900 to-charcoal-950 text-white rounded-3xl p-8 sm:p-12 border border-charcoal-800 relative overflow-hidden shadow-xl">
-        <!-- Warm ambient accent glow -->
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-braise-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="bg-gradient-to-br from-charcoal-900 to-charcoal-950 text-white rounded-3xl p-8 sm:p-12 border border-charcoal-800 relative overflow-hidden shadow-xl isolate">
+        <!-- Warm ambient accent glow strictly contained -->
+        <div class="absolute right-0 bottom-0 w-60 h-60 bg-braise-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           <div class="lg:col-span-8 space-y-5">

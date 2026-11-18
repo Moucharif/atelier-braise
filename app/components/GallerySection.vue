@@ -131,26 +131,28 @@ const handleActionRedirect = (href?: string) => {
       </div>
 
       <!-- Category Filter Tabs with Count & Font Awesome Icons (Défilement horizontal fluide sur mobile, centré sur desktop) -->
-      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center mb-8 sm:mb-10">
-        <button
-          v-for="cat in GALLERY_CATEGORIES"
-          :key="cat.id"
-          type="button"
-          @click="activeCategory = cat.id"
-          class="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap shrink-0 transition-all duration-200"
-          :class="activeCategory === cat.id
-            ? 'bg-braise-500 text-white shadow-md transform scale-105'
-            : 'bg-[#FAFAF8] dark:bg-charcoal-850 text-charcoal-700 dark:text-charcoal-300 border border-charcoal-200/80 dark:border-charcoal-800 hover:border-braise-400 hover:text-braise-600'"
-        >
-          <i :class="cat.icon" class="text-xs"></i>
-          <span>{{ cat.label }}</span>
-          <span
-            class="text-[11px] px-2 py-0.5 rounded-md font-bold"
-            :class="activeCategory === cat.id ? 'bg-white/20 text-white' : 'bg-charcoal-200/70 dark:bg-charcoal-750 text-charcoal-600 dark:text-charcoal-400'"
+      <div class="w-full max-w-full overflow-hidden mb-8 sm:mb-10">
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 sm:px-0 sm:flex-wrap sm:justify-center w-full">
+          <button
+            v-for="cat in GALLERY_CATEGORIES"
+            :key="cat.id"
+            type="button"
+            @click="activeCategory = cat.id"
+            class="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap shrink-0 transition-all duration-200"
+            :class="activeCategory === cat.id
+              ? 'bg-braise-500 text-white shadow-md transform scale-105'
+              : 'bg-[#FAFAF8] dark:bg-charcoal-850 text-charcoal-700 dark:text-charcoal-300 border border-charcoal-200/80 dark:border-charcoal-800 hover:border-braise-400 hover:text-braise-600'"
           >
-            {{ getCategoryCount(cat.id) }}
-          </span>
-        </button>
+            <i :class="cat.icon" class="text-xs"></i>
+            <span>{{ cat.label }}</span>
+            <span
+              class="text-[11px] px-2 py-0.5 rounded-md font-bold"
+              :class="activeCategory === cat.id ? 'bg-white/20 text-white' : 'bg-charcoal-200/70 dark:bg-charcoal-750 text-charcoal-600 dark:text-charcoal-400'"
+            >
+              {{ getCategoryCount(cat.id) }}
+            </span>
+          </button>
+        </div>
       </div>
 
       <!-- Photos Grid -->
